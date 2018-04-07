@@ -22,7 +22,7 @@ To install the plugin, follow these instructions.
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Twig Profiler.
 
-Or you can install the plugin via the *Plugin Store* in the Craft CMS 3 AdminCP.
+Or you can install the plugin via the **Plugin Store** in the Craft CMS 3 AdminCP.
 
 ## Twig Profiler Overview
 
@@ -34,7 +34,7 @@ To use Twig Profiler, you'll need to enable the [Yii2 Debug Toolbar](https://yii
 
 ![Screenshot](resources/screenshots/enable-debug-toolbar.png)
 
-To enable it, go to the your Account page, and click on the *Preferences* tab. Then check the *Show the debug toolbar on the front end* and/or *Show the debug toolbar on the Control Panel* checkboxes, depending on where you want the toolbar to appear.
+To enable it, go to the your Account page, and click on the **Preferences** tab. Then check the **Show the debug toolbar on the front end** and/or **Show the debug toolbar on the Control Panel** checkboxes, depending on where you want the toolbar to appear.
 
 You'll then have the Debug Toolbar appearing at the bottom of your pages:
 
@@ -50,28 +50,28 @@ To use Twig Profiler, just wrap any chunks of Twig code you like in:
 
 ```twig
 {% profile "woof" %}
-    {# code goes here %}
+    {# code goes here #}
 {% endprofile %}
 ```
 The parameter you pass in (`woof` in the above example) should be unique per profile block, so you can identity it when looking at the profiling data.
 
-Reload your page, and then click on the *Time* section of the Debug Toolbar, and you'll see your profile data:
+Reload your page, and then click on the **Time** section of the Debug Toolbar, and you'll see your profile data:
 
 ![Screenshot](resources/screenshots/performance-profiling.png)
 
-The *Duration* column shows how long it took to execute the chunk of code inside of the `{% profile %}` block.
+The **Duration** column shows how long it took to execute the chunk of code inside of the `{% profile %}` block.
 
-The *Category* column shows the type of the profile sample, which will always been *Twig Profiler* for profile data collected by Twig Profiler.
+The **Category** column shows the type of the profile sample, which will always been **Twig Profiler** for profile data collected by Twig Profiler.
 
-The *Info* column shows the unique identifier we passed in.
+The **Info** column shows the unique identifier we passed in.
 
-You can filter the display to show only the *Category* or *Info* you want by typing into the text boxes above the columns.
+You can filter the display to show only the **Category** or **Info** you want by typing into the text boxes above the columns.
 
-Clicking on the *Timeline* section on the left will show you a visual timeline of the profile data:
+Clicking on the **Timeline** section on the left will show you a visual timeline of the profile data:
 
 ![Screenshot](resources/screenshots/performance-timeline.png)
 
-Hovering over the green sections will show you the *Info* identifier you passed in.
+Hovering over the green sections will show you the **Info** identifier you passed in.
 
 ### Pro Tips
 
