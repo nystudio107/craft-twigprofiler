@@ -1,0 +1,44 @@
+{
+    "name": "nystudio107/craft-twigprofiler",
+    "description": "Twig Profiler allows you to profile sections of your Twig templates, and see the resulting timings in the Yii2 Debug Toolbar",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "twig profiler"
+    ],
+    "support": {
+        "docs": "https://github.com/nystudio107/craft-twigprofiler/blob/master/README.md",
+        "issues": "https://github.com/nystudio107/craft-twigprofiler/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "nystudio107",
+            "homepage": "https://nystudio107.com/"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "nystudio107\\twigprofiler\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Twig Profiler",
+        "handle": "twig-profiler",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/nystudio107/craft-twigprofiler/master/CHANGELOG.md",
+        "components": {
+            "profile": "nystudio107\\twigprofiler\\services\\Profile"
+        },
+        "class": "nystudio107\\twigprofiler\\TwigProfiler"
+    }
+}
+
