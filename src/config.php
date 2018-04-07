@@ -2,7 +2,8 @@
 /**
  * Twig Profiler plugin for Craft CMS 3.x
  *
- * Twig Profiler allows you to profile sections of your Twig templates, and see the resulting timings in the Yii2 Debug Toolbar
+ * Twig Profiler allows you to profile sections of your Twig templates, and see
+ * the resulting timings in the Yii2 Debug Toolbar
  *
  * @link      https://nystudio107.com/
  * @copyright Copyright (c) 2018 nystudio107
@@ -18,13 +19,12 @@
  * and make your changes there to override default settings.
  *
  * Once copied to 'craft/config', this file will be multi-environment aware as
- * well, so you can have different settings groups for each environment, just as
- * you do for 'general.php'
+ * well, so you can have different settings groups for each environment, just
+ * as you do for 'general.php'
  */
 
 return [
 
-    // This controls blah blah blah
-    "someAttribute" => true,
-
+    // Controls whether to append the template name to the profile category
+    'appendTemplateName' => true,
 ];

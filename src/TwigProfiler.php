@@ -11,12 +11,16 @@
 
 namespace nystudio107\twigprofiler;
 
+use nystudio107\twigprofiler\models\Settings;
 use nystudio107\twigprofiler\services\Profile as ProfileService;
 use nystudio107\twigprofiler\twigextensions\ProfilerTwigExtension;
-use nystudio107\twigprofiler\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
+use craft\events\TemplateEvent;
+use craft\web\View;
+
+use yii\base\Event;
 
 /**
  * Class TwigProfiler
@@ -37,6 +41,11 @@ class TwigProfiler extends Plugin
      */
     public static $plugin;
 
+    /**
+     * @var string The name of the rendering template
+     */
+    public static $renderingTemplate = '';
+
     // Public Properties
     // =========================================================================
 
@@ -56,7 +65,23 @@ class TwigProfiler extends Plugin
         parent::init();
         self::$plugin = $this;
 
+        $settings = $this->getSettings();
         Craft::$app->view->registerTwigExtension(new ProfilerTwigExtension());
+
+        if ($settings->appendTemplateName) {
+            // Handler: View::EVENT_BEFORE_RENDER_TEMPLATE
+            Event::on(
+                View::class,
+                View::EVENT_BEFORE_RENDER_TEMPLATE,
+                function (TemplateEvent $event) {
+                    Craft::debug(
+                        'View::EVENT_BEFORE_RENDER_TEMPLATE',
+                        __METHOD__
+                    );
+                    self::$renderingTemplate = ' - '.$event->template;
+                }
+            );
+        }
 
         Craft::info(
             Craft::t(

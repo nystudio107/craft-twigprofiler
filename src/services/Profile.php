@@ -2,7 +2,8 @@
 /**
  * Twig Profiler plugin for Craft CMS 3.x
  *
- * Twig Profiler allows you to profile sections of your Twig templates, and see the resulting timings in the Yii2 Debug Toolbar
+ * Twig Profiler allows you to profile sections of your Twig templates, and see
+ * the resulting timings in the Yii2 Debug Toolbar
  *
  * @link      https://nystudio107.com/
  * @copyright Copyright (c) 2018 nystudio107
@@ -12,6 +13,7 @@ namespace nystudio107\twigprofiler\services;
 
 use Craft;
 use craft\base\Component;
+use nystudio107\twigprofiler\TwigProfiler;
 
 /**
  * @author    nystudio107
@@ -20,6 +22,11 @@ use craft\base\Component;
  */
 class Profile extends Component
 {
+    // Constants
+    // =========================================================================
+
+    const CATEGORY_PREFIX = 'Twig Profiler';
+
     // Public Methods
     // =========================================================================
 
@@ -30,7 +37,11 @@ class Profile extends Component
      */
     public function begin(string $profile)
     {
-        Craft::beginProfile($profile, 'Twig Profiler');
+        Craft::beginProfile(
+            $profile,
+            Craft::t('twig-profiler', self::CATEGORY_PREFIX)
+            .TwigProfiler::$renderingTemplate
+        );
     }
 
     /**
@@ -40,6 +51,10 @@ class Profile extends Component
      */
     public function end(string $profile)
     {
-        Craft::endProfile($profile, 'Twig Profiler');
+        Craft::endProfile(
+            $profile,
+            Craft::t('twig-profiler', self::CATEGORY_PREFIX)
+            .TwigProfiler::$renderingTemplate
+        );
     }
 }

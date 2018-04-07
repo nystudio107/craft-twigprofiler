@@ -61,7 +61,7 @@ Reload your page, and then click on the **Time** section of the Debug Toolbar, a
 
 The **Duration** column shows how long it took to execute the chunk of code inside of the `{% profile %}` block.
 
-The **Category** column shows the type of the profile sample, which will always been **Twig Profiler** for profile data collected by Twig Profiler.
+The **Category** column shows the type of the profile sample, which will always been **Twig Profiler** along with the name of the template, for profile data collected by Twig Profiler.
 
 The **Info** column shows the unique identifier we passed in.
 
