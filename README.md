@@ -81,6 +81,8 @@ You can nest `{% profile %}` block tags as much as you like.
 
 Profile data is only collected when `devMode` is on. If you turn `devMode` off, the `{% profile %}` block tags do nothing, so you can safely leave them in your production code.
 
+Under the hood, it uses the exact same method that Craft/Yii2 use to record profiling data.
+
 ## Twig Profiler Roadmap
 
 Some things to do, and ideas for potential features:
