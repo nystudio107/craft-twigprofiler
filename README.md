@@ -40,7 +40,7 @@ You'll then have the Debug Toolbar appearing at the bottom of your pages:
 
 ![Screenshot](resources/screenshots/debug-toolbar.png)
 
-It's beyond the scope of this document to explain everything the Debug Toolbar does, but it has some very cool features. Explore around!
+If you want to learn more about the Debug Toolbar, check out the [Profiling your Website with Craft CMS 3’s Debug Toolbar](https://nystudio107.com/blog/profiling-your-website-with-craft-cms-3s-debug-toolbar) article.
 
 ## Using Twig Profiler
 
