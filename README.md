@@ -1,3 +1,5 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/badges/quality-score.png?b=v1)](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/?branch=v1) [![Code Coverage](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/badges/coverage.png?b=v1)](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/?branch=v1) [![Build Status](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/badges/build.png?b=v1)](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/build-status/v1) [![Code Intelligence Status](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/badges/code-intelligence.svg?b=v1)](https://scrutinizer-ci.com/code-intelligence)
+
 # Twig Profiler plugin for Craft CMS 3.x
 
 Twig Profiler allows you to profile sections of your Twig templates, and see the resulting timings in the Yii2 Debug Toolbar
