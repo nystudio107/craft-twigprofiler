@@ -32,22 +32,24 @@ class ProfilerNode extends \Twig_Node
     {
         $compiler
             ->addDebugInfo($this)
-            ->write('$_profile = ')
+            ->write('$_profile[] = ')
             ->subcompile($this->getNode('profile'))
             ->raw(";\n")
-            ->write("if (\$_profile) {\n")
+            ->write("if (count(\$_profile)) {\n")
             ->indent()
-            ->write(TwigProfiler::class."::\$plugin->profile->begin(\$_profile);\n")
+            ->write(TwigProfiler::class."::\$plugin->profile->begin(\$_profile[count(\$_profile)-1]);\n")
             ->outdent()
             ->write("}\n")
             ->indent()
             ->subcompile($this->getNode('body'))
             ->outdent()
-            ->write("if (\$_profile) {\n")
+            ->write("if (count(\$_profile)) {\n")
             ->indent()
-            ->write(TwigProfiler::class."::\$plugin->profile->end(\$_profile);\n")
+            ->write(TwigProfiler::class."::\$plugin->profile->end(\$_profile[count(\$_profile)-1]);\n")
             ->outdent()
             ->write("}\n")
-            ->write("unset(\$_profile);\n");
+            ->write("array_pop(\$_profile);\n")
+            ->write("if (!count(\$_profile)) { unset(\$_profile); }\n")
+            ;
     }
 }
