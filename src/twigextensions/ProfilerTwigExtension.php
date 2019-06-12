@@ -11,14 +11,16 @@
 
 namespace nystudio107\twigprofiler\twigextensions;
 
+use Twig\Extension\AbstractExtension;
+
 /**
  * Class ProfilerTwigExtension
  *
  * @author    nystudio107
  * @package   TwigProfiler
- * @since     1.0.0
+ * @since     1.0.1
  */
-class ProfilerTwigExtension extends \Twig_Extension
+class ProfilerTwigExtension extends AbstractExtension
 {
     // Public Methods
     // =========================================================================
@@ -26,7 +28,7 @@ class ProfilerTwigExtension extends \Twig_Extension
     /**
      * @inheritdoc
      */
-    public function getName()
+    public function getName(): string
     {
         return 'twig-profiler';
     }

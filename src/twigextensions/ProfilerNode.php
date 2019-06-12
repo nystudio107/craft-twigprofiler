@@ -13,14 +13,17 @@ namespace nystudio107\twigprofiler\twigextensions;
 
 use nystudio107\twigprofiler\TwigProfiler;
 
+use Twig\Compiler;
+use Twig\Node\Node;
+
 /**
  * Class ProfilerTokenParser
  *
  * @author    nystudio107
  * @package   TwigProfiler
- * @since     1.0.0
+ * @since     1.0.1
  */
-class ProfilerNode extends \Twig_Node
+class ProfilerNode extends Node
 {
     // Public Methods
     // =========================================================================
@@ -28,7 +31,7 @@ class ProfilerNode extends \Twig_Node
     /**
      * @inheritdoc
      */
-    public function compile(\Twig_Compiler $compiler)
+    public function compile(Compiler $compiler)
     {
         $profileName = $this->getNode('profile');
         if ($profileName !== null) {
