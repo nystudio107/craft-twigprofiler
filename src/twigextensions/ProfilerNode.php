@@ -13,14 +13,17 @@ namespace nystudio107\twigprofiler\twigextensions;
 
 use nystudio107\twigprofiler\TwigProfiler;
 
+use Twig\Compiler;
+use Twig\Node\Node;
+
 /**
  * Class ProfilerTokenParser
  *
  * @author    nystudio107
  * @package   TwigProfiler
- * @since     1.0.0
+ * @since     1.0.1
  */
-class ProfilerNode extends \Twig_Node
+class ProfilerNode extends Node
 {
     // Public Methods
     // =========================================================================
@@ -28,26 +31,20 @@ class ProfilerNode extends \Twig_Node
     /**
      * @inheritdoc
      */
-    public function compile(\Twig_Compiler $compiler)
+    public function compile(Compiler $compiler)
     {
-        $compiler
-            ->addDebugInfo($this)
-            ->write('$_profile = ')
-            ->subcompile($this->getNode('profile'))
-            ->raw(";\n")
-            ->write("if (\$_profile) {\n")
-            ->indent()
-            ->write(TwigProfiler::class."::\$plugin->profile->begin(\$_profile);\n")
-            ->outdent()
-            ->write("}\n")
-            ->indent()
-            ->subcompile($this->getNode('body'))
-            ->outdent()
-            ->write("if (\$_profile) {\n")
-            ->indent()
-            ->write(TwigProfiler::class."::\$plugin->profile->end(\$_profile);\n")
-            ->outdent()
-            ->write("}\n")
-            ->write("unset(\$_profile);\n");
+        $profileName = $this->getNode('profile');
+        if ($profileName !== null) {
+            $profileName = $profileName->attributes['value'] ?? '';
+            if (!empty($profileName)) {
+                $compiler
+                    ->addDebugInfo($this)
+                    ->write(TwigProfiler::class."::\$plugin->profile->begin('".$profileName."');\n")
+                    ->indent()
+                    ->subcompile($this->getNode('body'))
+                    ->outdent()
+                    ->write(TwigProfiler::class."::\$plugin->profile->end('".$profileName."');\n");
+            }
+        }
     }
 }

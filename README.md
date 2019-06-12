@@ -24,7 +24,7 @@ To install the plugin, follow these instructions.
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Twig Profiler.
 
-Or you can install the plugin via the **Plugin Store** in the Craft CMS 3 AdminCP.
+Or you can install the plugin via the **Plugin Store** in the Craft CMS 3 Control Panel.
 
 ## Twig Profiler Overview
 

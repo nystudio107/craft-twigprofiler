@@ -11,14 +11,17 @@
 
 namespace nystudio107\twigprofiler\twigextensions;
 
+use Twig\Token;
+use Twig\TokenParser\AbstractTokenParser;
+
 /**
  * Class ProfilerTokenParser
  *
  * @author    nystudio107
  * @package   TwigProfiler
- * @since     1.0.0
+ * @since     1.0.1
  */
-class ProfilerTokenParser extends \Twig_TokenParser
+class ProfilerTokenParser extends AbstractTokenParser
 {
     // Public Methods
     // =========================================================================
@@ -26,7 +29,7 @@ class ProfilerTokenParser extends \Twig_TokenParser
     /**
      * @inheritdoc
      */
-    public function getTag()
+    public function getTag(): string
     {
         return 'profile';
     }
@@ -34,27 +37,27 @@ class ProfilerTokenParser extends \Twig_TokenParser
     /**
      * @inheritdoc
      */
-    public function parse(\Twig_Token $token)
+    public function parse(Token $token)
     {
         $lineno = $token->getLine();
         $stream = $this->parser->getStream();
         $nodes = [
             'profile' => $this->parser->getExpressionParser()->parseExpression(),
         ];
-        $stream->expect(\Twig_Token::BLOCK_END_TYPE);
+        $stream->expect(Token::BLOCK_END_TYPE);
         $nodes['body'] = $this->parser->subparse([$this, 'decideProfilerEnd'], true);
-        $stream->expect(\Twig_Token::BLOCK_END_TYPE);
+        $stream->expect(Token::BLOCK_END_TYPE);
 
         return new ProfilerNode($nodes, [], $lineno, $this->getTag());
     }
 
 
     /**
-     * @param \Twig_Token $token
+     * @param Token $token
      *
      * @return bool
      */
-    public function decideProfilerEnd(\Twig_Token $token): bool
+    public function decideProfilerEnd(Token $token): bool
     {
         return $token->test('endprofile');
     }
