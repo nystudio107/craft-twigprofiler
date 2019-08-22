@@ -11,8 +11,8 @@
         "twig profiler"
     ],
     "support": {
-        "docs": "https://github.com/nystudio107/craft-twigprofiler/blob/master/README.md",
-        "issues": "https://github.com/nystudio107/craft-twigprofiler/issues"
+        "docs": "https://nystudio107.com/plugins/twig-profiler/documentation",
+        "issues": "https://nystudio107.com/plugins/twig-profiler/support"
     },
     "license": "MIT",
     "authors": [
