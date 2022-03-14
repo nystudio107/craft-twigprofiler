@@ -1,6 +1,6 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/badges/quality-score.png?b=v1)](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/?branch=v1) [![Code Coverage](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/badges/coverage.png?b=v1)](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/?branch=v1) [![Build Status](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/badges/build.png?b=v1)](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/build-status/v1) [![Code Intelligence Status](https://scrutinizer-ci.com/g/nystudio107/craft-twigprofiler/badges/code-intelligence.svg?b=v1)](https://scrutinizer-ci.com/code-intelligence)
 
-# Twig Profiler plugin for Craft CMS 3.x
+# Twig Profiler plugin for Craft CMS 4.x
 
 Twig Profiler allows you to profile sections of your Twig templates, and see the resulting timings in the Yii2 Debug Toolbar
 
@@ -8,7 +8,7 @@ Twig Profiler allows you to profile sections of your Twig templates, and see the
 
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0 or later.
+This plugin requires Craft CMS 4.0.0 or later.
 
 ## Installation
 
@@ -24,7 +24,7 @@ To install the plugin, follow these instructions.
 
 3. Install the plugin via `./craft install/plugin twig-profiler` via the CLI, or in the Control Panel, go to Settings → Plugins and click the “Install” button for Twig Profiler.
 
-Or you can install the plugin via the **Plugin Store** in the Craft CMS 3 Control Panel.
+Or you can install the plugin via the **Plugin Store** in the Craft CMS Control Panel.
 
 ## Documentation
 
