@@ -31,7 +31,7 @@ class ProfilerNode extends Node
     /**
      * @inheritdoc
      */
-    public function compile(Compiler $compiler)
+    public function compile(Compiler $compiler): void
     {
         $profileName = $this->getNode('profile');
         if ($profileName !== null) {

@@ -52,7 +52,7 @@ class TwigProfiler extends Plugin
     /**
      * @var string
      */
-    public $schemaVersion = '1.0.0';
+    public string $schemaVersion = '1.0.0';
 
     // Public Methods
     // =========================================================================
@@ -60,7 +60,7 @@ class TwigProfiler extends Plugin
     /**
      * @inheritdoc
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
         self::$plugin = $this;
@@ -73,7 +73,7 @@ class TwigProfiler extends Plugin
             Event::on(
                 View::class,
                 View::EVENT_BEFORE_RENDER_TEMPLATE,
-                function (TemplateEvent $event) {
+                function (TemplateEvent $event): void {
                     Craft::debug(
                         'View::EVENT_BEFORE_RENDER_TEMPLATE',
                         __METHOD__
@@ -99,7 +99,7 @@ class TwigProfiler extends Plugin
     /**
      * @inheritdoc
      */
-    protected function createSettingsModel()
+    protected function createSettingsModel(): \nystudio107\twigprofiler\models\Settings
     {
         return new Settings();
     }

@@ -24,18 +24,17 @@ class Profile extends Component
 {
     // Constants
     // =========================================================================
-
-    const CATEGORY_PREFIX = 'Twig Profiler';
+    /**
+     * @var string
+     */
+    public const CATEGORY_PREFIX = 'Twig Profiler';
 
     // Public Methods
     // =========================================================================
-
     /**
      * Start logging profiling data
-     *
-     * @param string $profile
      */
-    public function begin(string $profile)
+    public function begin(string $profile): void
     {
         Craft::beginProfile(
             $profile,
@@ -46,10 +45,8 @@ class Profile extends Component
 
     /**
      * End logging profiling data
-     *
-     * @param string $profile
      */
-    public function end(string $profile)
+    public function end(string $profile): void
     {
         Craft::endProfile(
             $profile,
