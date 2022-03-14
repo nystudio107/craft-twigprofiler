@@ -37,7 +37,7 @@ class ProfilerTokenParser extends AbstractTokenParser
     /**
      * @inheritdoc
      */
-    public function parse(Token $token): \nystudio107\twigprofiler\twigextensions\ProfilerNode
+    public function parse(Token $token): ProfilerNode
     {
         $lineno = $token->getLine();
         $stream = $this->parser->getStream();
@@ -45,12 +45,11 @@ class ProfilerTokenParser extends AbstractTokenParser
             'profile' => $this->parser->getExpressionParser()->parseExpression(),
         ];
         $stream->expect(Token::BLOCK_END_TYPE);
-        $nodes['body'] = $this->parser->subparse(fn(\Twig\Token $token): bool => $this->decideProfilerEnd($token), true);
+        $nodes['body'] = $this->parser->subparse(fn(Token $token): bool => $this->decideProfilerEnd($token), true);
         $stream->expect(Token::BLOCK_END_TYPE);
 
         return new ProfilerNode($nodes, [], $lineno, $this->getTag());
     }
-
 
     public function decideProfilerEnd(Token $token): bool
     {

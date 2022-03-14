@@ -11,15 +11,13 @@
 
 namespace nystudio107\twigprofiler;
 
-use nystudio107\twigprofiler\models\Settings;
-use nystudio107\twigprofiler\services\Profile as ProfileService;
-use nystudio107\twigprofiler\twigextensions\ProfilerTwigExtension;
-
 use Craft;
 use craft\base\Plugin;
 use craft\events\TemplateEvent;
 use craft\web\View;
-
+use nystudio107\twigprofiler\models\Settings;
+use nystudio107\twigprofiler\services\Profile as ProfileService;
+use nystudio107\twigprofiler\twigextensions\ProfilerTwigExtension;
 use yii\base\Event;
 
 /**
@@ -33,18 +31,18 @@ use yii\base\Event;
  */
 class TwigProfiler extends Plugin
 {
-    // Static Properties
+    // Public Static Properties
     // =========================================================================
 
     /**
-     * @var TwigProfiler
+     * @var ?TwigProfiler
      */
-    public static $plugin;
+    public static ?TwigProfiler $plugin;
 
     /**
      * @var string The name of the rendering template
      */
-    public static $renderingTemplate = '';
+    public static string $renderingTemplate = '';
 
     // Public Properties
     // =========================================================================
@@ -54,8 +52,30 @@ class TwigProfiler extends Plugin
      */
     public string $schemaVersion = '1.0.0';
 
+    /**
+     * @var bool
+     */
+    public bool $hasCpSection = false;
+
+    /**
+     * @var bool
+     */
+    public bool $hasCpSettings = false;
+
     // Public Methods
     // =========================================================================
+
+    /**
+     * @inheritdoc
+     */
+    public function __construct($id, $parent = null, array $config = [])
+    {
+        $config['components'] = [
+            'profile' => ProfileService::class,
+        ];
+
+        parent::__construct($id, $parent, $config);
+    }
 
     /**
      * @inheritdoc
@@ -65,20 +85,21 @@ class TwigProfiler extends Plugin
         parent::init();
         self::$plugin = $this;
 
+        /* @var Settings $settings */
         $settings = $this->getSettings();
         Craft::$app->view->registerTwigExtension(new ProfilerTwigExtension());
 
-        if ($settings->appendTemplateName) {
+        if ($settings !== null && $settings->appendTemplateName) {
             // Handler: View::EVENT_BEFORE_RENDER_TEMPLATE
             Event::on(
                 View::class,
                 View::EVENT_BEFORE_RENDER_TEMPLATE,
-                function (TemplateEvent $event): void {
+                static function (TemplateEvent $event): void {
                     Craft::debug(
                         'View::EVENT_BEFORE_RENDER_TEMPLATE',
                         __METHOD__
                     );
-                    self::$renderingTemplate = ' - '.$event->template;
+                    self::$renderingTemplate = ' - ' . $event->template;
                 }
             );
         }
@@ -99,7 +120,7 @@ class TwigProfiler extends Plugin
     /**
      * @inheritdoc
      */
-    protected function createSettingsModel(): \nystudio107\twigprofiler\models\Settings
+    protected function createSettingsModel(): Settings
     {
         return new Settings();
     }

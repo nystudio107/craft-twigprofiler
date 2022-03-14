@@ -11,9 +11,6 @@
 
 namespace nystudio107\twigprofiler\models;
 
-use nystudio107\twigprofiler\TwigProfiler;
-
-use Craft;
 use craft\base\Model;
 
 /**
@@ -30,7 +27,7 @@ class Settings extends Model
      * @var bool Controls whether to append the template name to the profile
      *      category
      */
-    public $appendTemplateName = true;
+    public bool $appendTemplateName = true;
 
     // Public Methods
     // =========================================================================

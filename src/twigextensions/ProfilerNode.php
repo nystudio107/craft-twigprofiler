@@ -12,7 +12,6 @@
 namespace nystudio107\twigprofiler\twigextensions;
 
 use nystudio107\twigprofiler\TwigProfiler;
-
 use Twig\Compiler;
 use Twig\Node\Node;
 
@@ -39,11 +38,11 @@ class ProfilerNode extends Node
             if (!empty($profileName)) {
                 $compiler
                     ->addDebugInfo($this)
-                    ->write(TwigProfiler::class."::\$plugin->profile->begin('".$profileName."');\n")
+                    ->write(TwigProfiler::class . "::\$plugin->profile->begin('" . $profileName . "');\n")
                     ->indent()
                     ->subcompile($this->getNode('body'))
                     ->outdent()
-                    ->write(TwigProfiler::class."::\$plugin->profile->end('".$profileName."');\n");
+                    ->write(TwigProfiler::class . "::\$plugin->profile->end('" . $profileName . "');\n");
             }
         }
     }

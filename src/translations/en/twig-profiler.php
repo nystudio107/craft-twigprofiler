@@ -16,5 +16,4 @@
  */
 return [
     '{name} plugin loaded' => '{name} plugin loaded',
-    'Twig Profiler'        => 'Twig Profiler',
 ];
