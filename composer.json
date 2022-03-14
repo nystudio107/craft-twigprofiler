@@ -1,44 +1,39 @@
 {
-    "name": "nystudio107/craft-twigprofiler",
-    "description": "Twig Profiler allows you to profile sections of your Twig templates, and see the resulting timings in the Yii2 Debug Toolbar",
-    "type": "craft-plugin",
+  "name": "nystudio107/craft-twigprofiler",
+  "description": "Twig Profiler allows you to profile sections of your Twig templates, and see the resulting timings in the Yii2 Debug Toolbar",
+  "type": "craft-plugin",
   "version": "4.0.0-beta.1",
-    "keywords": [
-        "craft",
-        "cms",
-        "craftcms",
-        "craft-plugin",
-        "twig profiler"
-    ],
-    "support": {
-        "docs": "https://nystudio107.com/plugins/twig-profiler/documentation",
-        "issues": "https://nystudio107.com/plugins/twig-profiler/support"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "nystudio107",
-            "homepage": "https://nystudio107.com/"
-        }
-    ],
-    "require": {
-    "craftcms/cms": "^4.0.0-beta.1"
-    },
-    "autoload": {
-        "psr-4": {
-          "nystudio107\\twigprofiler\\": "src/"
-        }
-    },
-    "extra": {
-        "name": "Twig Profiler",
-        "handle": "twig-profiler",
-        "hasCpSettings": false,
-        "hasCpSection": false,
-        "changelogUrl": "https://raw.githubusercontent.com/nystudio107/craft-twigprofiler/master/CHANGELOG.md",
-        "components": {
-            "profile": "nystudio107\\twigprofiler\\services\\Profile"
-        },
-        "class": "nystudio107\\twigprofiler\\TwigProfiler"
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "craft-plugin",
+    "twig profiler"
+  ],
+  "support": {
+    "docs": "https://nystudio107.com/docs/twig-profiler/",
+    "issues": "https://nystudio107.com/plugins/twig-profiler/support",
+    "source": "https://github.com/nystudio107/craft-twigprofiler"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "nystudio107",
+      "homepage": "https://nystudio107.com/"
     }
+  ],
+  "require": {
+    "craftcms/cms": "^4.0.0-beta.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "nystudio107\\twigprofiler\\": "src/"
+    }
+  },
+  "extra": {
+    "class": "nystudio107\\twigprofiler\\TwigProfiler",
+    "handle": "twig-profiler",
+    "name": "Twig Profiler"
+  }
 }
 
