@@ -14,9 +14,9 @@ module.exports = {
     docsDir: 'docs/docs',
     docsBranch: 'v1',
     algolia: {
-      appId: '',
-      apiKey: '',
-      indexName: ''
+      appId: 'V60OC8MPVK',
+      apiKey: 'f0f7f91f8388d5b8d8c7f78dbcc4ea97',
+      indexName: 'nystudio107-twig-profiler'
     },
     editLinks: true,
     editLinkText: 'Edit this page on GitHub',
