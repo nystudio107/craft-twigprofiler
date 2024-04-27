@@ -1,25 +1,23 @@
 <?php
 /**
- * Twig Profiler plugin for Craft CMS 3.x
+ * Twig Profiler plugin for Craft CMS
  *
  * Twig Profiler allows you to profile sections of your Twig templates, and see
  * the resulting timings in the Yii2 Debug Toolbar
  *
  * @link      https://nystudio107.com/
- * @copyright Copyright (c) 2018 nystudio107
+ * @copyright Copyright (c) nystudio107
  */
 
 namespace nystudio107\twigprofiler;
-
-use nystudio107\twigprofiler\models\Settings;
-use nystudio107\twigprofiler\services\Profile as ProfileService;
-use nystudio107\twigprofiler\twigextensions\ProfilerTwigExtension;
 
 use Craft;
 use craft\base\Plugin;
 use craft\events\TemplateEvent;
 use craft\web\View;
-
+use nystudio107\twigprofiler\models\Settings;
+use nystudio107\twigprofiler\services\ServicesTrait;
+use nystudio107\twigprofiler\twigextensions\ProfilerTwigExtension;
 use yii\base\Event;
 
 /**
@@ -28,18 +26,21 @@ use yii\base\Event;
  * @author    nystudio107
  * @package   TwigProfiler
  * @since     1.0.0
- *
- * @property  ProfileService $profile
  */
 class TwigProfiler extends Plugin
 {
+    // Traits
+    // =========================================================================
+
+    use ServicesTrait;
+
     // Static Properties
     // =========================================================================
 
     /**
-     * @var TwigProfiler
+     * @var ?TwigProfiler
      */
-    public static $plugin;
+    public static $plugin = null;
 
     /**
      * @var string The name of the rendering template
@@ -65,6 +66,7 @@ class TwigProfiler extends Plugin
         parent::init();
         self::$plugin = $this;
 
+        /** @var Settings $settings */
         $settings = $this->getSettings();
         Craft::$app->view->registerTwigExtension(new ProfilerTwigExtension());
 
@@ -73,12 +75,12 @@ class TwigProfiler extends Plugin
             Event::on(
                 View::class,
                 View::EVENT_BEFORE_RENDER_TEMPLATE,
-                function (TemplateEvent $event) {
+                function(TemplateEvent $event) {
                     Craft::debug(
                         'View::EVENT_BEFORE_RENDER_TEMPLATE',
                         __METHOD__
                     );
-                    self::$renderingTemplate = ' - '.$event->template;
+                    self::$renderingTemplate = ' - ' . $event->template;
                 }
             );
         }
