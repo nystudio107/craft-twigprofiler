@@ -44,11 +44,6 @@
   },
   "autoload": {
     "psr-4": {
-      "nystudio107\\minify\\": "src/"
-    }
-  },
-  "autoload": {
-    "psr-4": {
       "nystudio107\\twigprofiler\\": "src/"
     }
   },
