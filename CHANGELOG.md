@@ -2,17 +2,6 @@
 
 All notable changes to this project will be documented in this file.
 
-## 4.0.0 - UNRELEASED
+## 5.0.0 - UNRELEASED
 ### Added
-* Added `ServicesTrait` for the plugin service component registration
-* Add `phpstan` and `ecs` code linting
-* Add `code-analysis.yaml` GitHub action
-
-### Changed
-* Updated docs to use node 20 & a new sitemap plugin
-* PHPstan code cleanup
-* ECS code cleanup
-
-## 4.0.0-beta.1 - 2022.03.14
-### Added
-* Initial Craft CMS 4 compatibility
+* Stable release for Craft CMS 5
