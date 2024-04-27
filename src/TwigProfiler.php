@@ -40,7 +40,7 @@ class TwigProfiler extends Plugin
     /**
      * @var ?TwigProfiler
      */
-    public static ?TwigProfiler $plugin;
+    public static ?TwigProfiler $plugin = null;
 
     /**
      * @var string The name of the rendering template
@@ -76,7 +76,7 @@ class TwigProfiler extends Plugin
         parent::init();
         self::$plugin = $this;
 
-        /* @var Settings $settings */
+        /** @var Settings $settings */
         $settings = $this->getSettings();
         Craft::$app->view->registerTwigExtension(new ProfilerTwigExtension());
 
