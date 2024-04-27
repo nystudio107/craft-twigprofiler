@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## 1.0.2 - UNRELEASED
+## 1.0.2 - 2024.04.27
 ### Added
 * Added `ServicesTrait` for the plugin service component registration
 * Add `phpstan` and `ecs` code linting
