@@ -16,7 +16,7 @@ use craft\base\Plugin;
 use craft\events\TemplateEvent;
 use craft\web\View;
 use nystudio107\twigprofiler\models\Settings;
-use nystudio107\twigprofiler\services\Profile as ProfileService;
+use nystudio107\twigprofiler\services\ServicesTrait;
 use nystudio107\twigprofiler\twigextensions\ProfilerTwigExtension;
 use yii\base\Event;
 
@@ -26,11 +26,14 @@ use yii\base\Event;
  * @author    nystudio107
  * @package   TwigProfiler
  * @since     1.0.0
- *
- * @property  ProfileService $profile
  */
 class TwigProfiler extends Plugin
 {
+    // Traits
+    // =========================================================================
+
+    use ServicesTrait;
+
     // Public Static Properties
     // =========================================================================
 
@@ -68,18 +71,6 @@ class TwigProfiler extends Plugin
     /**
      * @inheritdoc
      */
-    public function __construct($id, $parent = null, array $config = [])
-    {
-        $config['components'] = [
-            'profile' => ProfileService::class,
-        ];
-
-        parent::__construct($id, $parent, $config);
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function init(): void
     {
         parent::init();
@@ -94,7 +85,7 @@ class TwigProfiler extends Plugin
             Event::on(
                 View::class,
                 View::EVENT_BEFORE_RENDER_TEMPLATE,
-                static function (TemplateEvent $event): void {
+                static function(TemplateEvent $event): void {
                     Craft::debug(
                         'View::EVENT_BEFORE_RENDER_TEMPLATE',
                         __METHOD__
