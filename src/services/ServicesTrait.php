@@ -44,7 +44,7 @@ trait ServicesTrait
     }
 
     /**
-     * Returns the helper service
+     * Returns the profile service
      *
      * @return ProfileService The profile service
      * @throws InvalidConfigException
