@@ -11,7 +11,6 @@
 
 namespace nystudio107\twigprofiler\services;
 
-use craft\helpers\ArrayHelper;
 use nystudio107\twigprofiler\services\Profile as ProfileService;
 use yii\base\InvalidConfigException;
 
@@ -20,33 +19,32 @@ use yii\base\InvalidConfigException;
  * @package   Twig Profiler
  * @since     4.0.1
  *
- * @property  ProfileService $pofile
+ * @property  ProfileService $profile
  */
 trait ServicesTrait
 {
-    // Public Methods
+    // Public Static Methods
     // =========================================================================
 
     /**
      * @inheritdoc
      */
-    public function __construct($id, $parent = null, array $config = [])
+    public static function config(): array
     {
-        // Merge in the passed config, so it our config can be overridden by Plugins::pluginConfigs['vite']
-        // ref: https://github.com/craftcms/cms/issues/1989
-        $config = ArrayHelper::merge([
+        return [
             'components' => [
                 'profile' => ProfileService::class,
             ],
-        ], $config);
-
-        parent::__construct($id, $parent, $config);
+        ];
     }
 
+    // Public Methods
+    // =========================================================================
+
     /**
-     * Returns the helper service
+     * Returns the profile service
      *
-     * @return ProfileService The minify service
+     * @return ProfileService The profile service
      * @throws InvalidConfigException
      */
     public function getProfile(): ProfileService
