@@ -3,7 +3,7 @@ import {defineConfig} from 'vitepress'
 export default defineConfig({
   title: 'Twig Profiler Plugin',
   description: 'Documentation for the Twig Profiler plugin',
-  base: '/docs/twig-profiler/v5/',
+  base: '/docs/twig-profiler/',
   lang: 'en-US',
   head: [
     ['meta', {content: 'https://github.com/nystudio107', property: 'og:see_also',}],
